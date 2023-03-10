@@ -1,11 +1,13 @@
 @extends('layouts.app')
-
+@if(!auth()->user())
+    <meta http-equiv="Refresh" content="0; url='/register'"/>
+@else
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header purple">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -13,7 +15,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                            Je bent ingelogd als {{ auth()->user()->role }}.
+                        Je bent ingelogd als {{ auth()->user()->role }}.
                         @if(auth()->user()->isAdmin())
                             <div>
                                 <form action="/users">
@@ -22,22 +24,23 @@
                             </div>
                         @endif
                         @if(auth()->user()->isVerified())
-                                <div>
-                                    <form action="/member">
-                                        <input type="submit" value="Ledensite"/>
-                                    </form>
-                                </div>
+                            <div>
+                                <form action="/member">
+                                    <input type="submit" value="Ledensite"/>
+                                </form>
+                            </div>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br/>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Pages') }}</div>
+                    <div class="card-header purple">{{ __('Pages') }}</div>
                     <div class="card-body">
                         <div>
                             <h2>Welkom Leden!</h2>
@@ -59,16 +62,17 @@
             </div>
         </div>
     </div>
+    <br/>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Posts') }}</div>
+                    <div class="card-header purple">{{ __('Posts') }}</div>
                     <div class="card-body">
                         @if(auth()->user()->isAdmin())
-                        <div class="pull-right">
-                            <a class="btn btn-success" href="{{ route('posts.create') }}"> Maak nieuwe post</a>
-                        </div>
+                            <div class="pull-right">
+                                <a class="btn btn-success" href="{{ route('posts.create') }}"> Maak nieuwe post</a>
+                            </div>
                         @endif
                         @foreach ($posts as $post)
                             <div class="card">
@@ -94,11 +98,12 @@
             </div>
         </div>
     </div>
+    <br/>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Recent Images') }}</div>
+                    <div class="card-header purple">{{ __('Recent Images') }}</div>
                     <div class="card-body">
                         <div class="img-fluid">Img 1</div>
                         <div class="img-fluid">Img 2</div>
@@ -114,3 +119,4 @@
         </div>
     </div>
 @endsection
+@endif
