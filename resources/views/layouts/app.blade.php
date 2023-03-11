@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light purple shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/home') }}">
                 Popkoor Singing Beat
@@ -38,23 +38,22 @@
                     @if(auth()->guest())
                     @elseif (auth()->user()->isAdmin())
                         <div>
-                            <a class="nav-link" href="{{ url('/users') }}">Users</a>
+                            <a class="nav-link" href="{{ url('/users') }}">Gebruikers</a>
+                        </div>
+                        <div>
+                            <a class="nav-link" href="{{ url('/member') }}">Ledensite</a>
                         </div>
                     @endif
                     @if(auth()->guest())
 
                     @elseif (auth()->user())
-
+                        <div>
+                            <a class="nav-link" href="{{ url('/member') }}">Ledensite</a>
+                        </div>
                     @endif
                     <div>
                         <a class="nav-link" href="{{ url('/repertoire') }}">Repertoire</a>
                     </div>
-                    <div>
-                        <a class="nav-link" href="{{ url('/') }}">Album</a>
-                    </div>
-                        <div>
-                            <a class="nav-link" href="{{ url('/') }}">Over Ons</a>
-                        </div>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

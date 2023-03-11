@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@if(auth()->user()->role == 'admin')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -67,3 +67,7 @@
 
 
 @endsection
+
+@else
+    <meta http-equiv="Refresh" content="0; url='/404'"/>
+@endif
