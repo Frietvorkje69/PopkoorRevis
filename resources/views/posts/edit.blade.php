@@ -27,19 +27,6 @@
 
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div>
-                                        <form action="{{route('posts.destroy', $post->id)}}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <div class="justify-content-center row row-cols-auto">
-                                                <input id="id"
-                                                       name="id"
-                                                       type="hidden"
-                                                       value="{{$post->id}}">
-                                                <input type="submit" value="Verwijderen" class="btn btn-danger">
-                                            </div>
-                                        </form>
-                                    </div>
                                     <div class="form-group">
                                         <strong>Titel:</strong>
                                         <input type="text" name="title" value="{{ $post->title }}" class="form-control"
@@ -61,6 +48,19 @@
                                 </div>
                             </div>
                         </form>
+                        <div>
+                            <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <div class="justify-content-center row row-cols-auto">
+                                    <input id="id"
+                                           name="id"
+                                           type="hidden"
+                                           value="{{$post->id}}">
+                                    <input type="submit" value="Verwijderen" class="btn btn-danger">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
