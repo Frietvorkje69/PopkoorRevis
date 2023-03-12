@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@if(auth()->guest())
+    <meta http-equiv="Refresh" content="0; url='/login'"/>
+@else
 @section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -55,3 +57,5 @@
             </div>
         </div>
 @endsection
+
+@endif

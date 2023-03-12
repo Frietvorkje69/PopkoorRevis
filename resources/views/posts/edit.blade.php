@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@if(auth()->user()->role == 'admin')
+@if(auth()->guest())
+    <meta http-equiv="Refresh" content="0; url='/404'"/>
+@elseif(auth()->user()->isAdmin())
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

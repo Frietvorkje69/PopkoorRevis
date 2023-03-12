@@ -40,9 +40,6 @@
                         <div>
                             <a class="nav-link" href="{{ url('/users') }}">Gebruikers</a>
                         </div>
-                        <div>
-                            <a class="nav-link" href="{{ url('/member') }}">Ledensite</a>
-                        </div>
                     @endif
                     @if(auth()->guest())
 
@@ -50,10 +47,10 @@
                         <div>
                             <a class="nav-link" href="{{ url('/member') }}">Ledensite</a>
                         </div>
+                        <div>
+                            <a class="nav-link" href="{{ url('/repertoire') }}">Repertoire</a>
+                        </div>
                     @endif
-                    <div>
-                        <a class="nav-link" href="{{ url('/repertoire') }}">Repertoire</a>
-                    </div>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
